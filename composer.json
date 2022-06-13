@@ -1,0 +1,17 @@
+{
+  "name": "camjamasuarus/camjam",
+  "authors": [
+    {
+      "name": "Cameron Jetton",
+      "email": "cjetton18@gmail.com"
+    }
+  ],
+  "require": {
+    "kirki-framework/control-code": "^1.0",
+    "kirki-framework/control-color": "^1.0",
+    "kirki-framework/control-repeater": "^1.0",
+    "kirki-framework/control-select": "^1.0",
+    "sunra/php-simple-html-dom-parser": "^1.5",
+    "kirki-framework/control-checkbox": "^0.1.2"
+  }
+}

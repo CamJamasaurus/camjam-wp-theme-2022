@@ -1,0 +1,20 @@
+/* -------------------------
+   Sidebar Styles
+------------------------- */
+.widget_media_image {
+  text-align: center;
+  img {
+    display: inline-block;
+  }
+}
+
+.sidebar {
+  > aside {
+    margin-bottom: 1em;
+  }
+  .menu {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0 0 1.5em 0;
+  }
+}

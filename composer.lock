@@ -1,0 +1,388 @@
+{
+  "_readme": [
+      "This file locks the dependencies of your project to a known state",
+      "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+      "This file is @generated automatically"
+  ],
+  "content-hash": "57d4b639a0567fe2da7f36a800f447b0",
+  "packages": [
+      {
+          "name": "kirki-framework/control-base",
+          "version": "v1.0.2",
+          "source": {
+              "type": "git",
+              "url": "https://github.com/kirki-framework/control-base.git",
+              "reference": "d37f069228d7e8505cfd002bdc011b2dd3fa4f50"
+          },
+          "dist": {
+              "type": "zip",
+              "url": "https://api.github.com/repos/kirki-framework/control-base/zipball/d37f069228d7e8505cfd002bdc011b2dd3fa4f50",
+              "reference": "d37f069228d7e8505cfd002bdc011b2dd3fa4f50",
+              "shasum": ""
+          },
+          "require": {
+              "kirki-framework/url-getter": "*",
+              "php": ">=5.6"
+          },
+          "type": "library",
+          "autoload": {
+              "psr-4": {
+                  "Kirki\\Control\\": "src/Control"
+              }
+          },
+          "notification-url": "https://packagist.org/downloads/",
+          "license": [
+              "MIT"
+          ],
+          "authors": [
+              {
+                  "name": "Ari Stathopoulos",
+                  "email": "aristath@gmail.com",
+                  "homepage": "http://aristath.github.io",
+                  "role": "Developer"
+              }
+          ],
+          "description": "The Base Class for other Kirki Customizer Controls.",
+          "homepage": "https://aristath.github.io/kirki",
+          "keywords": [
+              "customizer",
+              "framework",
+              "wordpress"
+          ],
+          "time": "2019-03-31T16:34:59+00:00"
+      },
+      {
+          "name": "kirki-framework/control-checkbox",
+          "version": "v0.1.2",
+          "source": {
+              "type": "git",
+              "url": "https://github.com/kirki-framework/control-checkbox.git",
+              "reference": "554893f0b35e2b4285ea418d088cca963e948889"
+          },
+          "dist": {
+              "type": "zip",
+              "url": "https://api.github.com/repos/kirki-framework/control-checkbox/zipball/554893f0b35e2b4285ea418d088cca963e948889",
+              "reference": "554893f0b35e2b4285ea418d088cca963e948889",
+              "shasum": ""
+          },
+          "require": {
+              "kirki-framework/control-base": "*",
+              "kirki-framework/url-getter": "*",
+              "php": ">=5.6"
+          },
+          "type": "library",
+          "autoload": {
+              "psr-4": {
+                  "Kirki\\Control\\": "src/Control",
+                  "Kirki\\Field\\": "src/Field"
+              }
+          },
+          "notification-url": "https://packagist.org/downloads/",
+          "license": [
+              "MIT"
+          ],
+          "authors": [
+              {
+                  "name": "Ari Stathopoulos",
+                  "email": "aristath@gmail.com",
+                  "homepage": "http://aristath.github.io",
+                  "role": "Developer"
+              }
+          ],
+          "description": "Checkbox control for the Kirki Customizer framework.",
+          "homepage": "https://aristath.github.io/kirki",
+          "keywords": [
+              "customizer",
+              "framework",
+              "wordpress"
+          ],
+          "time": "2019-10-20T11:52:49+00:00"
+      },
+      {
+          "name": "kirki-framework/control-code",
+          "version": "v1.0.1",
+          "source": {
+              "type": "git",
+              "url": "https://github.com/kirki-framework/control-code.git",
+              "reference": "3e7f78dc69c3edcf2a3e7b5b5746dd842b57c683"
+          },
+          "dist": {
+              "type": "zip",
+              "url": "https://api.github.com/repos/kirki-framework/control-code/zipball/3e7f78dc69c3edcf2a3e7b5b5746dd842b57c683",
+              "reference": "3e7f78dc69c3edcf2a3e7b5b5746dd842b57c683",
+              "shasum": ""
+          },
+          "require": {
+              "kirki-framework/control-base": "*",
+              "php": ">=5.6"
+          },
+          "type": "library",
+          "autoload": {
+              "psr-4": {
+                  "Kirki\\Control\\": "src/Control",
+                  "Kirki\\Field\\": "src/Field"
+              }
+          },
+          "notification-url": "https://packagist.org/downloads/",
+          "license": [
+              "MIT"
+          ],
+          "authors": [
+              {
+                  "name": "Ari Stathopoulos",
+                  "email": "aristath@gmail.com",
+                  "homepage": "http://aristath.github.io",
+                  "role": "Developer"
+              }
+          ],
+          "description": "Code control for the Kirki Customizer framework.",
+          "homepage": "https://aristath.github.io/kirki",
+          "keywords": [
+              "customizer",
+              "framework",
+              "wordpress"
+          ],
+          "time": "2019-03-31T11:03:40+00:00"
+      },
+      {
+          "name": "kirki-framework/control-color",
+          "version": "v1.0.7",
+          "source": {
+              "type": "git",
+              "url": "https://github.com/kirki-framework/control-color.git",
+              "reference": "ebb0b4ea0e3a0ba29149065fde1ab94a46e54b19"
+          },
+          "dist": {
+              "type": "zip",
+              "url": "https://api.github.com/repos/kirki-framework/control-color/zipball/ebb0b4ea0e3a0ba29149065fde1ab94a46e54b19",
+              "reference": "ebb0b4ea0e3a0ba29149065fde1ab94a46e54b19",
+              "shasum": ""
+          },
+          "require": {
+              "kirki-framework/control-base": "*",
+              "kirki-framework/url-getter": "*",
+              "php": ">=5.6"
+          },
+          "type": "library",
+          "autoload": {
+              "psr-4": {
+                  "Kirki\\Control\\": "src/Control",
+                  "Kirki\\Field\\": "src/Field"
+              }
+          },
+          "notification-url": "https://packagist.org/downloads/",
+          "license": [
+              "MIT"
+          ],
+          "authors": [
+              {
+                  "name": "Ari Stathopoulos",
+                  "email": "aristath@gmail.com",
+                  "homepage": "http://aristath.github.io",
+                  "role": "Developer"
+              }
+          ],
+          "description": "Color control for the Kirki Customizer framework.",
+          "homepage": "https://aristath.github.io/kirki",
+          "keywords": [
+              "customizer",
+              "framework",
+              "wordpress"
+          ],
+          "time": "2019-04-13T21:16:32+00:00"
+      },
+      {
+          "name": "kirki-framework/control-repeater",
+          "version": "v1.0",
+          "source": {
+              "type": "git",
+              "url": "https://github.com/kirki-framework/control-repeater.git",
+              "reference": "845fca8b7326a2fb52f25b389ed772915d32d406"
+          },
+          "dist": {
+              "type": "zip",
+              "url": "https://api.github.com/repos/kirki-framework/control-repeater/zipball/845fca8b7326a2fb52f25b389ed772915d32d406",
+              "reference": "845fca8b7326a2fb52f25b389ed772915d32d406",
+              "shasum": ""
+          },
+          "require": {
+              "kirki-framework/control-base": "*",
+              "kirki-framework/url-getter": "*",
+              "php": ">=5.6"
+          },
+          "type": "library",
+          "autoload": {
+              "psr-4": {
+                  "Kirki\\Control\\": "src/Control",
+                  "Kirki\\Field\\": "src/Field",
+                  "Kirki\\Settings\\": "src/Settings"
+              }
+          },
+          "notification-url": "https://packagist.org/downloads/",
+          "license": [
+              "MIT"
+          ],
+          "authors": [
+              {
+                  "name": "Ari Stathopoulos",
+                  "email": "aristath@gmail.com",
+                  "homepage": "http://aristath.github.io",
+                  "role": "Developer"
+              }
+          ],
+          "description": "Repeater control for the Kirki Customizer framework.",
+          "homepage": "https://aristath.github.io/kirki",
+          "keywords": [
+              "customizer",
+              "framework",
+              "wordpress"
+          ],
+          "time": "2019-03-31T14:18:56+00:00"
+      },
+      {
+          "name": "kirki-framework/control-select",
+          "version": "v1.0",
+          "source": {
+              "type": "git",
+              "url": "https://github.com/kirki-framework/control-select.git",
+              "reference": "2ed7cc8d27f11b08bc1548f3f5e5d7a8a552647f"
+          },
+          "dist": {
+              "type": "zip",
+              "url": "https://api.github.com/repos/kirki-framework/control-select/zipball/2ed7cc8d27f11b08bc1548f3f5e5d7a8a552647f",
+              "reference": "2ed7cc8d27f11b08bc1548f3f5e5d7a8a552647f",
+              "shasum": ""
+          },
+          "require": {
+              "kirki-framework/control-base": "*",
+              "kirki-framework/url-getter": "*",
+              "php": ">=5.6"
+          },
+          "type": "library",
+          "autoload": {
+              "psr-4": {
+                  "Kirki\\Control\\": "src/Control",
+                  "Kirki\\Field\\": "src/Field"
+              }
+          },
+          "notification-url": "https://packagist.org/downloads/",
+          "license": [
+              "MIT"
+          ],
+          "authors": [
+              {
+                  "name": "Ari Stathopoulos",
+                  "email": "aristath@gmail.com",
+                  "homepage": "http://aristath.github.io",
+                  "role": "Developer"
+              }
+          ],
+          "description": "Select control for the Kirki Customizer framework.",
+          "homepage": "https://aristath.github.io/kirki",
+          "keywords": [
+              "customizer",
+              "framework",
+              "wordpress"
+          ],
+          "time": "2019-03-31T15:39:30+00:00"
+      },
+      {
+          "name": "kirki-framework/url-getter",
+          "version": "v1.0.3",
+          "source": {
+              "type": "git",
+              "url": "https://github.com/kirki-framework/url-getter.git",
+              "reference": "a07286de239ec912f172fad8df11f8f307c9cd1b"
+          },
+          "dist": {
+              "type": "zip",
+              "url": "https://api.github.com/repos/kirki-framework/url-getter/zipball/a07286de239ec912f172fad8df11f8f307c9cd1b",
+              "reference": "a07286de239ec912f172fad8df11f8f307c9cd1b",
+              "shasum": ""
+          },
+          "require": {
+              "php": ">=5.6"
+          },
+          "type": "library",
+          "autoload": {
+              "psr-4": {
+                  "Kirki\\": "src"
+              }
+          },
+          "notification-url": "https://packagist.org/downloads/",
+          "license": [
+              "MIT"
+          ],
+          "authors": [
+              {
+                  "name": "Ari Stathopoulos",
+                  "email": "aristath@gmail.com",
+                  "homepage": "http://aristath.github.io",
+                  "role": "Developer"
+              }
+          ],
+          "description": "Helper component to get the URL of a file in WordPress.",
+          "homepage": "https://aristath.github.io/kirki",
+          "keywords": [
+              "wordpress"
+          ],
+          "time": "2019-03-30T14:59:26+00:00"
+      },
+      {
+          "name": "sunra/php-simple-html-dom-parser",
+          "version": "v1.5.2",
+          "source": {
+              "type": "git",
+              "url": "https://github.com/sunra/php-simple-html-dom-parser.git",
+              "reference": "75b9b1cb64502d8f8c04dc11b5906b969af247c6"
+          },
+          "dist": {
+              "type": "zip",
+              "url": "https://api.github.com/repos/sunra/php-simple-html-dom-parser/zipball/75b9b1cb64502d8f8c04dc11b5906b969af247c6",
+              "reference": "75b9b1cb64502d8f8c04dc11b5906b969af247c6",
+              "shasum": ""
+          },
+          "require": {
+              "ext-mbstring": "*",
+              "php": ">=5.3.2"
+          },
+          "type": "library",
+          "autoload": {
+              "psr-0": {
+                  "Sunra\\PhpSimple\\HtmlDomParser": "Src/"
+              }
+          },
+          "notification-url": "https://packagist.org/downloads/",
+          "license": [
+              "MIT"
+          ],
+          "authors": [
+              {
+                  "name": "Sunra",
+                  "email": "sunra@yandex.ru",
+                  "homepage": "https://github.com/sunra"
+              },
+              {
+                  "name": "S.C. Chen",
+                  "homepage": "http://sourceforge.net/projects/simplehtmldom/"
+              }
+          ],
+          "description": "Composer adaptation of: A HTML DOM parser written in PHP5+ let you manipulate HTML in a very easy way! Require PHP 5+. Supports invalid HTML. Find tags on an HTML page with selectors just like jQuery. Extract contents from HTML in a single line.",
+          "homepage": "https://github.com/sunra/php-simple-html-dom-parser",
+          "keywords": [
+              "dom",
+              "html",
+              "parser"
+          ],
+          "time": "2016-11-22T22:57:47+00:00"
+      }
+  ],
+  "packages-dev": [],
+  "aliases": [],
+  "minimum-stability": "stable",
+  "stability-flags": [],
+  "prefer-stable": false,
+  "prefer-lowest": false,
+  "platform": [],
+  "platform-dev": []
+}

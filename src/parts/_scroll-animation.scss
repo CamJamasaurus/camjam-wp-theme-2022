@@ -1,0 +1,22 @@
+.cj-fade {
+  & > * {
+    opacity: 0;
+    transition: transform .5s ease, opacity 1s ease;
+  }
+  &.active > * {
+    opacity: 1;
+    transform: translate(0,0);
+  }
+  &-slide-left > * {
+    transform: translate(-100%,0);
+  }
+  &-slide-right > * {
+    transform: translate(100%,0);
+  }
+}
+
+@for $i from 2 through 15 {
+  .lnb-fade-stagger > *:nth-child(#{$i}) {
+    transition-delay: #{($i * 0.2) - 0.2}s;
+  }
+}

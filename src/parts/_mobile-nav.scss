@@ -1,0 +1,275 @@
+/*
+Styles for the Overlay Mobile Navigation
+*/
+.camjam-toggle-bars {
+  display: inline-block;
+  padding: 1rem;
+  transition: opacity 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+
+  &:hover {
+    cursor: pointer;
+    cursor: hand;
+    opacity: 0.8;
+  }
+
+  fa-icon {
+    font-size: 30px;
+    width: 1em;
+    text-align: center;
+    color: var(--theme-accent);
+  }
+}
+.camjam-nav-overlay {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(white, 0.99);
+  text-align: left;
+  padding-top: 1em;
+  z-index: 99999;
+  font-size: 18px;
+  overflow-y: auto;
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.15s ease;
+
+  &[hidden] {
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .admin-bar & {
+    top: 32px !important;
+    @media screen and (max-width: 782px) {
+      top: 46px !important;
+    }
+  }
+
+  .logo {
+    width: 75vw;
+    padding-left: 15px;
+  }
+}
+
+.camjam-mobile-nav {
+  display: block;
+  list-style-type: none;
+  border-top: 1px solid;
+  border-color: var(--theme-accent);
+  padding: 30px 20px;
+  line-height: 3.5rem;
+  user-select: none;
+
+  & > .menu-item {
+    padding-left: 36px;
+
+    &.menu-item-has-children {
+      padding-left: 0;
+    }
+  }
+
+  .menu-item {
+    clear: both;
+    transition: opacity 0.15s ease;
+
+    a {
+      display: inline-block;
+      padding-right: 40px;
+      color: #333;
+      transition: 0.25s ease-in-out;
+      line-height: 40px;
+    }
+    &:hover,
+    &.current_page_item,
+    &.current-menu-ancestor,
+    &.current-menu-parent,
+    &.current_page_parent,
+    &.current_page_ancestor,
+    &.submenu-open {
+      a {
+        color: var(--theme-accent);
+      }
+    }
+  }
+
+  &__expand {
+    display: inline-block;
+    font-size: 20px;
+    padding: 1rem;
+    transition: color 0.15s ease;
+
+    &:hover {
+      cursor: hand;
+      cursor: pointer;
+      color: var(--theme-accent-action);
+    }
+  }
+}
+
+.overlay-close-icon {
+  padding: 2rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 30px;
+  transition: opacity 0.15s ease;
+
+  &:hover {
+    cursor: hand;
+    cursor: pointer;
+    color: var(--theme-accent-action);
+  }
+}
+
+.camjam-nav-overlay .sub-menu {
+  display: none;
+  list-style-type: none;
+  padding: 0;
+}
+
+.camjam-nav-overlay .sub-menu li {
+  margin-left: 30px;
+}
+
+.hm-active {
+  background-color: var(--theme-accent-action);
+  color: #fff !important;
+}
+
+.cjSlideOutNav {
+  display: block;
+  position: fixed;
+  width: 100%;
+  top: 15vh;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  max-width: 450px;
+  transition: right 0.15s ease;
+  overflow-x: hidden;
+  overflow-y: auto;
+  z-index: 999999;
+  box-shadow: -1px -1px 9px #00000052;
+  background: #fff;
+
+  &__page {
+    list-style: none;
+    position: absolute;
+    top: 0;
+    left: 900px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    transition: left 0.15s ease;
+    height: fit-content;
+
+    &--main {
+      @extend .cjSlideOutNav__page;
+      left: 0;
+    }
+
+    &.page-ancestor {
+      left: -450px;
+    }
+
+    &.page-active {
+      left: 450px;
+      position: absolute;
+    }
+  }
+
+  &__item {
+    border-bottom: 1px solid #d6d6d6;
+
+    a {
+      padding: 0.75em 1.25em;
+      color: black;
+      width: 100%;
+    }
+
+    &--slide {
+      display: grid;
+      grid-template-columns: 1fr 3em;
+      grid-template-rows: 1fr 0;
+    }
+
+    &--dropdown {
+      display: flex;
+      flex-wrap: wrap;
+
+      a {
+        flex: 1;
+      }
+    }
+  }
+
+  &__btn {
+    cursor: pointer;
+    width: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ccc;
+
+    &--forward {
+      @extend .cjSlideOutNav__btn;
+    }
+
+    &--back {
+      @extend .cjSlideOutNav__btn;
+      height: 3em;
+    }
+
+    &--expand {
+      @extend .cjSlideOutNav__btn;
+    }
+  }
+
+  &__subMenu {
+    list-style: none;
+    width: 100%;
+    padding-left: 0;
+    display: none;
+    height: fit-content;
+
+    .cjSlideOutNav__item {
+      a {
+        display: block;
+      }
+
+      &:first-child {
+        border-top: 1px solid #d6d6d6;
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
+    &.expanded {
+      display: block;
+      height: fit-content;
+
+      .cjSlideOutNav__item {
+        padding-left: 1.5rem;
+      }
+    }
+  }
+
+  &__after {
+    position: absolute;
+    top: 10px;
+  }
+
+  &[hidden] {
+    display: block !important;
+    right: -450px;
+  }
+}
