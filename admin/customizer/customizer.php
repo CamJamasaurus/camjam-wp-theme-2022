@@ -9,72 +9,149 @@ add_action('customize_register', function ($wp_customize) {
     require_once dirname(__FILE__) . '/alpha-color-picker/alpha-color-picker.php';
 });
 
-// function sanitize_colors($value) {
-//     // This pattern will check and match 3/6/8-character hex, rgb, rgba, hsl, & hsla colors.
-//     $pattern = '/^(\#[\da-f]{3}|\#[\da-f]{6}|\#[\da-f]{8}|rgba\(((\d{1,2}|1\d\d|2([0-4]\d|5[0-5]))\s*,\s*){2}((\d{1,2}|1\d\d|2([0-4]\d|5[0-5]))\s*)(,\s*(0\.\d+|1))\)|hsla\(\s*((\d{1,2}|[1-2]\d{2}|3([0-5]\d|60)))\s*,\s*((\d{1,2}|100)\s*%)\s*,\s*((\d{1,2}|100)\s*%)(,\s*(0\.\d+|1))\)|rgb\(((\d{1,2}|1\d\d|2([0-4]\d|5[0-5]))\s*,\s*){2}((\d{1,2}|1\d\d|2([0-4]\d|5[0-5]))\s*)|hsl\(\s*((\d{1,2}|[1-2]\d{2}|3([0-5]\d|60)))\s*,\s*((\d{1,2}|100)\s*%)\s*,\s*((\d{1,2}|100)\s*%)\))$/';
-//     $values = \preg_match($pattern, $value, $matches);
-//     // Return the 1st match found.
-//     if (isset($matches[0])) {
-//         if (is_string($matches[0])) {
-//             return $matches[0];
-//         }
-//         if (is_array($matches[0]) && isset($matches[0][0])) {
-//             return $matches[0][0];
-//         }
-//     }
-//     // If no match was found, return an empty string.
-//     return '';
-// }
+function sanitize_colors($value) {
+    // This pattern will check and match 3/6/8-character hex, rgb, rgba, hsl, & hsla colors.
+    $pattern = '/^(\#[\da-f]{3}|\#[\da-f]{6}|\#[\da-f]{8}|rgba\(((\d{1,2}|1\d\d|2([0-4]\d|5[0-5]))\s*,\s*){2}((\d{1,2}|1\d\d|2([0-4]\d|5[0-5]))\s*)(,\s*(0\.\d+|1))\)|hsla\(\s*((\d{1,2}|[1-2]\d{2}|3([0-5]\d|60)))\s*,\s*((\d{1,2}|100)\s*%)\s*,\s*((\d{1,2}|100)\s*%)(,\s*(0\.\d+|1))\)|rgb\(((\d{1,2}|1\d\d|2([0-4]\d|5[0-5]))\s*,\s*){2}((\d{1,2}|1\d\d|2([0-4]\d|5[0-5]))\s*)|hsl\(\s*((\d{1,2}|[1-2]\d{2}|3([0-5]\d|60)))\s*,\s*((\d{1,2}|100)\s*%)\s*,\s*((\d{1,2}|100)\s*%)\))$/';
+    $values = \preg_match($pattern, $value, $matches);
+    // Return the 1st match found.
+    if (isset($matches[0])) {
+        if (is_string($matches[0])) {
+            return $matches[0];
+        }
+        if (is_array($matches[0]) && isset($matches[0][0])) {
+            return $matches[0][0];
+        }
+    }
+    // If no match was found, return an empty string.
+    return '';
+}
 
 function camjam_customize_register($wp_customize) {
 
     $customizer_panels = array(
         'camjam' => array(
             'title'       => 'Theme Options',
-            'description' => 'Go here to customize your theme',
+            'description' => 'Select from options below to customize your site',
             'priority'    => 0,
             'sections'    => array(
-                'header'         => array(
-                    'title'       => 'Header',
-                    'description' => 'Theme header options',
-                    'priority'    => 2,
+                'palette'        => array(
+                    'title'       => 'Color Palette',
+                    'description' => 'Theme color palette',
+                    'priority'    => 0,
                     'settings'    => array(
-                        'banner_content' => array(
+                        'primary'       => array(
                             'args'    => array(
-                                'default' => 'code',
+                                'default' => '#a01d20',
                             ),
                             'control' => array(
-                                'type'    => 'select',
-                                'label'   => 'Banner Content',
-                                'choices' => array(
-                                    'code' => 'Code Block',
-                                    'menu' => 'Navigation',
-                                ),
+                                'type'  => 'color_alpha',
+                                'label' => 'Primary',
                             ),
                         ),
-                        'banner'         => array(
+                        'secondary'     => array(
+                            'args'    => array(
+                                'default' => '#004983',
+                            ),
                             'control' => array(
-                                'type'    => 'code',
-                                'label'   => 'Banner Content',
-                                'choices' => array(
-                                    'language' => 'html',
-                                ),
+                                'type'  => 'color_alpha',
+                                'label' => 'Secondary',
+                            ),
+                        ),
+                        'accent'        => array(
+                            'args'    => array(
+                                'default' => '#0052b8',
+                            ),
+                            'control' => array(
+                                'type'  => 'color_alpha',
+                                'label' => 'Accent',
+                            ),
+                        ),
+                        'accent_action' => array(
+                            'args'    => array(
+                                'default' => '#004983',
+                            ),
+                            'control' => array(
+                                'type'  => 'color_alpha',
+                                'label' => 'Accent Action',
                             ),
                         ),
                     ),
                 ),
-                'footer'         => array(
-                    'title'       => 'Footer',
-                    'description' => 'Theme footer options',
-                    'priority'    => 2,
+                'social'         => array(
+                    'title'       => 'Social Links',
+                    'description' => 'Social media links',
+                    'priority'    => 1,
                     'settings'    => array(
-                        'logo' => array(
+                        'facebook'  => array(
                             'args'    => array(
-                                'default' => true,
+                                'default' => '',
                             ),
                             'control' => array(
-                                'type'  => 'checkbox',
-                                'label' => 'Show Logo in Footer?',
+                                'type'  => 'text',
+                                'label' => 'Facebook',
+                            ),
+                        ),
+                        'instagram' => array(
+                            'args'    => array(
+                                'default' => '',
+                            ),
+                            'control' => array(
+                                'type'  => 'text',
+                                'label' => 'Instagram',
+                            ),
+                        ),
+                        'twitter'   => array(
+                            'args'    => array(
+                                'default' => '',
+                            ),
+                            'control' => array(
+                                'type'  => 'text',
+                                'label' => 'Twitter',
+                            ),
+                        ),
+                        'linkedin'  => array(
+                            'args'    => array(
+                                'default' => '',
+                            ),
+                            'control' => array(
+                                'type'  => 'text',
+                                'label' => 'Linkedin',
+                            ),
+                        ),
+                        'pinterest' => array(
+                            'args'    => array(
+                                'default' => '',
+                            ),
+                            'control' => array(
+                                'type'  => 'text',
+                                'label' => 'Pinterest',
+                            ),
+                        ),
+                        'google'    => array(
+                            'args'    => array(
+                                'default' => '',
+                            ),
+                            'control' => array(
+                                'type'  => 'text',
+                                'label' => 'Google',
+                            ),
+                        ),
+                        'yelp'      => array(
+                            'args'    => array(
+                                'default' => '',
+                            ),
+                            'control' => array(
+                                'type'  => 'text',
+                                'label' => 'yelp',
+                            ),
+                        ),
+                        'youtube'   => array(
+                            'args'    => array(
+                                'default' => '',
+                            ),
+                            'control' => array(
+                                'type'  => 'text',
+                                'label' => 'Youtube',
                             ),
                         ),
                     ),
@@ -167,6 +244,7 @@ function camjam_customize_register($wp_customize) {
                             "{$panel_id}_{$section_id}_{$setting_id}",
                             isset($setting['args']) ? $setting['args'] : __return_empty_array()
                         );
+
                     }
 
                     // Add control to setting

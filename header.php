@@ -1,23 +1,68 @@
 <!DOCTYPE html>
-<html lang="en" class="">
+<?php
+  $html_classes = array();
+  if (camjam_use_webps()) {
+      $html_classes[] = 'webp';
+  }
+?>
+
+<html lang="en" class="<?php echo implode(' ', apply_filters('html_class', $html_classes)); ?>">
+
 <head>
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <?php wp_head();?>
-  <noscript>><style>.cjFade > * {opacity: 1 !important;transform: translate(0,0) !important;}</style></noscript>
+  <?php echo get_theme_mod('camjam_code_head', ''); ?>
+  <noscript><style>.cjFade > * {opacity: 1 !important;transform: translate(0,0) !important;}</style></noscript>
 </head>
-<body>
-  <header id="header">
-    <?php 
-      do_action('camjam_custom_header');
-      if (!has_action('camjam_custom_header')): ?>
-      <div class="cj-header">
-        <div class="cj-header__logo">
-          [logo goes here]
+
+<?php
+  $camjam_theme = array(
+      '--theme-primary:' . get_theme_mod('camjam_palette_primary', '#a01d20'),
+      '--theme-secondary:' . get_theme_mod('camjam_palette_secondary', '#004983'),
+      '--theme-accent:' . get_theme_mod('camjam_palette_accent', '#0052b8'),
+      '--theme-accent-action:' . get_theme_mod('camjam_palette_accent_action', '#004983'),
+  );
+  $header_classes = array(
+      'header',
+  );
+?>
+
+<body <?php body_class();?> style="<?php echo esc_html(implode(';', $camjam_theme)); ?>">
+
+<?php do_action('camjam_before_header');?>
+
+<header id="header">
+  <?php do_action('camjam_custom_header');?>
+  <?php if (!has_action('camjam_custom_header')): ?>
+
+    <?php do_action('camjam_before_header_inner');?>
+    <?php do_action('camjam_custom_header_content');?>
+    <?php if (!has_action('camjam_custom_header_content')): ?>
+
+      <div class="<?php echo implode(' ', $header_classes); ?>">
+        <div class="header__logo">
+          <?php
+            do_action('camjam_logo_prepend');
+            $header_logo_args = apply_filters('camjam_header_logo_args', array('size' => 'medium', 'lazyload' => false, 'location' => 'header'));
+            echo camjam_get_logo($header_logo_args['size'], $header_logo_args['lazyload'], $header_logo_args['location']);
+            do_action('camjam_logo_append');
+          ?>
         </div>
         <div class="cj-header__content"></div>
         <div class="cj-header__nav">
           <?php echo get_template_part('partials/nav'); ?>
         </div>
       </div>
-    <?php endif; ?>
-  </header>
+
+    <?php endif;?>
+
+    <?php do_action('camjam_after_header_inner');?>
+
+  <?php endif;?>
+</header>
+
+<?php do_action('camjam_after_header');
+
+if(!is_front_page()) {
+  get_template_part('partials/page-title-bar');
+}

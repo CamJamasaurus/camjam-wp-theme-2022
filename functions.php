@@ -56,7 +56,7 @@ function camjam_use_webps() {
 function camjam_get_lazyload_image($img_id, $class = '') {
 
   $lazyAttr = array(
-    'class'         => 'hyper-lazyload ' . $class,
+    'class'         => 'cj-lazyload ' . $class,
     'data-lazy-src' => wp_get_attachment_image_url($img_id, 'full'),
     'loading'       => '',
   );
@@ -140,4 +140,44 @@ function camjam_get_the_title() {
   }
 
   return apply_filters('camjam_filter_the_title', $title);
+}
+
+// Get & display logo
+function camjam_get_logo($size = 'medium', $layzload = true, $location = 'general') {
+  $size = $size ? $size : 'full';
+  $custom_logo_id = apply_filters('camjam_logo_id', get_theme_mod('custom_logo'), $location);
+  $custom_logo = wp_get_attachment_image_src($custom_logo_id, $size);
+  [0 => $custom_logo_url, 1 => $logo_width, 2 => $logo_height] = $custom_logo;
+  $custom_logo_srcset = wp_get_attachment_image_srcset($custom_logo_id, $size);
+  $custom_logo_sizes = wp_get_attachment_image_sizes($custom_logo_id, $size);
+  $custom_logo_alt = get_post_meta($custom_logo_id, '_wp_attachment_image_alt', true);
+
+  // Check to see if we should load a webp
+  if (camjam_use_webps()) {
+    $custom_logo_url = str_replace(array('jpg', 'png'), 'webp', $custom_logo_url);
+    $custom_logo_srcset = str_ireplace(array('jpg', 'png'), 'webp', $custom_logo_srcset);
+  }
+  if ($layzload) {
+    echo '<a class="logo-link" href="' . site_url() . '/"><img width="' . $logo_width . '" height="' . $logo_height . '" class="cj-lazyload logo logo--' . $location . '" loading="lazy" sizes="' . $custom_logo_sizes . '" data-lazy-src="' . esc_url($custom_logo_url) . '" data-srcset="' . $custom_logo_srcset . '" alt="' . $custom_logo_alt . '"></a>';
+  } else {
+    echo '<a class="logo-link" href="' . site_url() . '/"><img class="logo logo--' . $location . '" sizes="' . $custom_logo_sizes . '" src="' . esc_url($custom_logo_url) . '" srcset="' . $custom_logo_srcset . '" alt="' . $custom_logo_alt . '"></a>';
+  }
+}
+
+// Get Social links & display
+function camjam_get_social_links() {
+  $mods = get_theme_mods();
+  $raw_social_links = array_filter($mods, function ($value, $key) {
+    if (!is_array($value) && strpos($key, 'camjam_social') > -1 && $value !== '' && $key !== 'camjam_social_in_footer') {
+      return array(
+        'link' => $value,
+      );
+    }
+  }, ARRAY_FILTER_USE_BOTH);
+  $social_links = array();
+  foreach ($raw_social_links as $raw_social_link_key => $raw_social_link_value) {
+    $fixed_key = str_replace('camjam_social_', '', $raw_social_link_key);
+    $social_links[$fixed_key] = $raw_social_link_value;
+  }
+  return $social_links;
 }
