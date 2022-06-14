@@ -50,7 +50,7 @@ function camjam_customize_register($wp_customize) {
                         ),
                         'secondary'     => array(
                             'args'    => array(
-                                'default' => '#004983',
+                                'default' => '#0693e3',
                             ),
                             'control' => array(
                                 'type'  => 'color_alpha',
