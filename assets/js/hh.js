@@ -5,12 +5,12 @@
   let dd = d.querySelector('.dropdown');
 
   action = () => {
-    hhWrap.classList.toggle('hide-pseudo');
+    hhWrap.classList.toggle('hide-span');
     hh.classList.toggle('spin');
     hh.classList.toggle('unspin');
     dd.classList.toggle('hide');
   }
 
-  hh.addEventListener('click', action);
+  hhWrap.addEventListener('click', action);
 
 })(document);

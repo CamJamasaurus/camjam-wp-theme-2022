@@ -178,7 +178,7 @@ function get_bg_url() {
   if (has_post_thumbnail() == true) {
       return get_the_post_thumbnail_url( get_the_ID(), 'medium' );
   } else {
-      return content_url('/uploads/walking-toward-ceremony-tree-min-scaled-1.jpg');;
+      return content_url('/uploads/cam-chels-landscape-mod');
   }
 }
 
