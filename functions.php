@@ -93,6 +93,7 @@ function camjam_scripts() {
   camjam\ScriptLoader::load_script('wc-fa-icon', get_template_directory_uri() . '/assets/js/wc/fa-icon.wc.js', array(), '1.0.0', false, true);
   camjam\ScriptLoader::load_script('nav-operations', get_template_directory_uri() . '/assets/js/nav-operations.js', array(), '1.0.0', true);
   camjam\ScriptLoader::load_script('scroll-fade', get_template_directory_uri() . '/assets/js/scroll-fade.js', array(), '1.0.0', true);
+  camjam\ScriptLoader::load_script('hh', get_template_directory_uri() . '/assets/js/hh.js', array(), '1.0.0', true);
 }
 add_action('wp_enqueue_scripts', 'camjam_scripts');
 
@@ -127,7 +128,15 @@ function disable_emojis_remove_dns_prefetch($urls, $relation_type) {
 // Title functions
 function camjam_get_the_title() {
 
-  if (is_home()) {
+  if (function_exists('get_field') && get_field('custom_page_title') != null) {
+
+    $custom_h1 = get_field('custom_page_title');
+
+    if (!empty($custom_h1)) {
+      $title = $custom_h1;
+    }
+
+  } elseif (is_home()) {
     $title = get_the_title(get_option('page_for_posts', true));
   } elseif (is_archive()) {
     $title = get_the_archive_title();
@@ -161,6 +170,15 @@ function camjam_get_logo($size = 'medium', $layzload = true, $location = 'genera
     echo '<a class="logo-link" href="' . site_url() . '/"><img width="' . $logo_width . '" height="' . $logo_height . '" class="cj-lazyload logo logo--' . $location . '" loading="lazy" sizes="' . $custom_logo_sizes . '" data-lazy-src="' . esc_url($custom_logo_url) . '" data-srcset="' . $custom_logo_srcset . '" alt="' . $custom_logo_alt . '"></a>';
   } else {
     echo '<a class="logo-link" href="' . site_url() . '/"><img class="logo logo--' . $location . '" sizes="' . $custom_logo_sizes . '" src="' . esc_url($custom_logo_url) . '" srcset="' . $custom_logo_srcset . '" alt="' . $custom_logo_alt . '"></a>';
+  }
+}
+
+// Display featured img as titlebar background
+function get_bg_url() {
+  if (has_post_thumbnail() == true) {
+      return get_the_post_thumbnail_url( get_the_ID(), 'medium' );
+  } else {
+      return content_url('/uploads/walking-toward-ceremony-tree-min-scaled-1.jpg');;
   }
 }
 

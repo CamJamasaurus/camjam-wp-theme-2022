@@ -42,7 +42,7 @@ input[type='submit']:hover {
 	--fs-h5: 1.8rem;
 }
 html {
-	font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 	font-weight: 400;
 	font-size: 10px;
 	line-height: 1.5;
@@ -92,62 +92,101 @@ p {
 	margin-top: 0;
 	margin-bottom: 1.5em;
 }
+/* Montserrat */
 @font-face {
-  font-family:'Open Sans';
+  font-family:'Montserrat';
   font-style:normal;
   font-weight:400;
   font-display:swap;
   src:url(assets/fonts/Montserrat-Regular.ttf) format("truetype")
 }
 @font-face {
-  font-family:'Open Sans';
+  font-family:'Montserrat';
   font-style:italic;
   font-weight:400;
   font-display:swap;
   src:url(assets/fonts/Montserrat-Italic.ttf) format("truetype")
 }
 @font-face {
-  font-family:'Open Sans';
+  font-family:'Montserrat';
   font-style:normal;
   font-weight:600;
   font-display:swap;
   src:url(assets/fonts/Montserrat-SemiBold.ttf) format("truetype")
 }
 @font-face {
-  font-family:'Open Sans';
+  font-family:'Montserrat';
   font-style:italic;
   font-weight:600;
   font-display:swap;
   src:url(assets/fonts/Montserrat-SemiBoldItalic.ttf) format("truetype")
 }
 @font-face {
-  font-family:'Open Sans';
+  font-family:'Montserrat';
   font-style:normal;
   font-weight:700;
   font-display:swap;
   src:url(assets/fonts/Montserrat-Bold.ttf) format("truetype")
 }
 @font-face {
-  font-family:'Open Sans';
+  font-family:'Montserrat';
   font-style:italic;
   font-weight:700;
   font-display:swap;
   src:url(assets/fonts/Montserrat-BoldItalic.ttf) format("truetype")
 }
 @font-face {
-  font-family:'Open Sans';
+  font-family:'Montserrat';
   font-style:normal;
   font-weight:800;
   font-display:swap;
   src:url(assets/fonts/Montserrat-ExtraBold.ttf) format("truetype")
 }
 @font-face {
-  font-family:'Open Sans';
+  font-family:'Montserrat';
   font-style:italic;
   font-weight:800;
   font-display:swap;
   src:url(assets/fonts/Montserrat-ExtraBoldItalic.ttf) format("truetype")
 }
+/* Dancing Script */
+@font-face {
+  font-family:'Dancing Script';
+  font-style:normal;
+  font-weight:400;
+  font-display:swap;
+  src:url(assets/fonts/DancingScript-Regular.ttf) format("truetype")
+}
+@font-face {
+  font-family:'Dancing Script';
+  font-style:normal;
+  font-weight:500;
+  font-display:swap;
+  src:url(assets/fonts/DancingScript-Medium.ttf) format("truetype")
+}
+@font-face {
+  font-family:'Dancing Script';
+  font-style:normal;
+  font-weight:600;
+  font-display:swap;
+  src:url(assets/fonts/DancingScript-SemiBold.ttf) format("truetype")
+}
+@font-face {
+  font-family:'Dancing Script';
+  font-style:normal;
+  font-weight:700;
+  font-display:swap;
+  src:url(assets/fonts/DancingScript-Bold.ttf) format("truetype")
+}
+@font-face {
+  font-family:'Pacifico';
+  font-style:normal;
+  font-weight:400;
+  font-display:swap;
+  src:url(assets/fonts/Pacifico-Regular.ttf) format("truetype")
+}
+
+/* utility */
 img {
 	max-width: 100%;
 	height: auto;
@@ -315,43 +354,9 @@ header {
 	z-index: 15;
 }
 .header {
-	max-width: calc(1100px + 4rem);
 	padding: 0 2rem;
-	margin: 0 auto;
-	display: grid;
-	grid-gap: 2rem;
-	grid-template-columns: 1fr;
-	align-items: center;
 }
-@media only screen and (min-width: 1024px) {
-	.header {
-		grid-template-columns: auto 1fr;
-	}
-}
-.header__logo {
-	text-align: center;
-}
-.header__logo .logo-link {
-	display: inline-block;
-}
-.header__content {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-	grid-gap: 1em;
-	padding: 1em 0;
-}
-@media only screen and (max-width: 800px) {
-	.header__content {
-		text-align: center;
-	}
-}
-.header .phone-number {
-	font-size: 2em;
-}
-.logo--header {
-	width: 100%;
-	max-width: 500px;
-}
+
 
 /**
  *
@@ -581,7 +586,7 @@ header {
  * Styles to normalize
  *
  * * * * * * * * * * * * * * */
- html {
+html {
 	line-height: 1.15;
 	-webkit-text-size-adjust: 100%;
 }
@@ -713,7 +718,7 @@ template {
  *
  * * * * * * * * * * * * * * */
 
- .cj-fade > * {
+.cj-fade > * {
 	opacity: 0;
 	transition: transform .5s ease, opacity 1s ease;
 }
@@ -775,7 +780,7 @@ template {
  * Sidebar styles
  *
  * * * * * * * * * * * * * * */
- .widget_media_image {
+.widget_media_image {
 	text-align: center;
 }
 .widget_media_image img {
@@ -795,10 +800,26 @@ template {
  * Titlebar styles
  *
  * * * * * * * * * * * * * * */
- .camjam-page-title-bar {
+.camjam-page-title-bar {
 	padding: 3rem;
 	text-align: center;
 }
 .camjam-page-title-bar h1 {
 	margin-bottom: 0;
+}
+
+
+
+
+/* Wedding Site Styles */
+.cj-lazyload-bg {
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.cc-mainstage {
+	min-height: 600px;
+	max-width: 940px;
+	background-position: top center;
+	margin: 0 auto;
+	padding: 2rem;
 }

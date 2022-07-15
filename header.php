@@ -40,15 +40,6 @@
     <?php if (!has_action('camjam_custom_header_content')): ?>
 
       <div class="<?php echo implode(' ', $header_classes); ?>">
-        <div class="header__logo">
-          <?php
-            do_action('camjam_logo_prepend');
-            $header_logo_args = apply_filters('camjam_header_logo_args', array('size' => 'medium', 'lazyload' => false, 'location' => 'header'));
-            echo camjam_get_logo($header_logo_args['size'], $header_logo_args['lazyload'], $header_logo_args['location']);
-            do_action('camjam_logo_append');
-          ?>
-        </div>
-        <div class="cj-header__content"></div>
         <div class="cj-header__nav">
           <?php echo get_template_part('partials/nav'); ?>
         </div>
@@ -61,8 +52,10 @@
   <?php endif;?>
 </header>
 
-<?php do_action('camjam_after_header');
+<?php 
+  do_action('camjam_after_header');
+  
+  if(!is_front_page()) {
+    get_template_part('partials/page-title-bar');
+  }
 
-if(!is_front_page()) {
-  get_template_part('partials/page-title-bar');
-}

@@ -35,7 +35,9 @@
       </div>
     <?php endif;?>
   <?php endif;?>
-
+  <div class="footer__row footer__row--copyright">
+    <?php echo do_shortcode('[site_copyright]'); ?>
+  </div>
   <div class="footer__row footer__row--links">
     <?php
       $footer_links = apply_filters('camjam_terms_privacy_sitemap_links', array(
